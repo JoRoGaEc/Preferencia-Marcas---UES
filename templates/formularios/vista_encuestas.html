@@ -1,0 +1,51 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+      
+          <td>Nombre</td>
+          <td>Descripcion</td>
+
+          <td>Estado</td>
+          <td>Estadistico</td>
+          <td>Vista Previa</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if encuestas %}
+         {% for encuesta in encuestas %}
+         <tr>
+        
+           <td><h4>{{ encuesta.nombreEncuesta }}</h4></td>
+          <td><h4>{{ encuesta.descripEnc }}</h4></td>
+
+           <td><h4>{{ encuesta.estadoEnc }}</h4> </td>
+           <td>{{ encuesta.estadistico }}</td>
+           <td>
+             <a class="btn btn-primary" href="{% url 'menu:vista_previa' encuesta.pk %}">Vista actual</a>
+  
+
+           </td>
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay registros de encuestas </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+ 
+     <a class="btn btn-success btn-lg" href="{% url 'menu:index' %}">Menu principal</a>
+
+
+
+
+{% endblock contenidoC %}

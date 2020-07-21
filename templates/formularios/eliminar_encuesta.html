@@ -1,0 +1,14 @@
+{% extends "base/base.html" %}
+
+
+{% block contenidoC %}
+<form class=""  method="post">
+  {% csrf_token %}
+  <h3> {{ info }}{{ encuesta.nombreEncuesta }} ? </h3>
+  <button class="btn btn-danger" type="submit" >Si, Eliminar </button>
+  <a class="btn btn-default" href="{% url 'menu:mis_encuestas' %}"> Cancelar </a>
+</form>
+
+
+
+{% endblock contenidoC%}

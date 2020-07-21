@@ -1,0 +1,60 @@
+{% extends "base/base.html" %}
+
+
+
+{% block contenidoC %}
+
+        <h3>DATOS DE LA ENCUESTA: <h4>{{ encuesta.nombreEncuesta }}</h4></h3> 
+        <h4>Encuestas realizadas : {{ realizada }} Faltantes : {{ faltante }}</h4>
+    <table class="table table-bordered">
+  
+          {% if preguntas %}
+             {% for pregunta in preguntas %}
+
+                      <h3>{{ pregunta.descripcion }}</h3>
+                       <h5> <a href="{% url 'menu:grafica_pregunta' encuesta.id pregunta.id %}"> Ver grafica </a></h5> <!-- pasar url con id de encuesta mas id de pregunta con ello podemos -->
+                     {% for item in pregunta.item.all %}
+                         {% for resultado in  resultados %}
+                                 
+                              {% if resultado.item.id == item.id and resultado.pregunta.id == pregunta.id %}
+
+                                      <h4>{{ resultado.item }}     VOTOS : {{ resultado.frecuencia }}</h4> 
+                                  
+
+                                      <!-- Lo que queda para que aparezcan las otras items es inicializarlas con cero en la vista-->
+                                {% else %}
+                              
+                                {% endif %} 
+                         {% endfor %}
+
+                      {% endfor %}
+                           
+                       
+             {% endfor %}   
+                
+                
+
+      {% else %}
+              <h5>No hay preguntas </h5>
+     {% endif %}
+
+
+
+    </table>
+
+    <div id="charts">
+      
+
+    </div>
+ <canvas id="myChart" width="100" height="100"></canvas>
+<script type="text/javascript" src="/static/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="/static/dist/Chart.bundle.min.js"></script> <!-- para hacer los graficos -->
+
+
+
+
+
+
+
+
+{% endblock contenidoC %}

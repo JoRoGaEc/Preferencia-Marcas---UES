@@ -1,0 +1,72 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block META %}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="always">
+<noscript>
+<meta http-equiv="refresh" content="0; url=/noscript">
+</noscript>
+
+{% endblock META %}
+
+ {% block head %}
+					<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock head %}
+
+{% block JavaScript %}
+					<script src= "{% static 'js/jquery.js' %}"></script>
+             <script src= "{% static 'js/bootstrap.min.js' %}"></script>
+             <script src= "{% static 'js/Chart.min.js' %}"></script>
+               <script src= "{% static 'js/Chart.js' %}"></script>
+               <link rel="stylesheet" type="text/css" href="{% static 'css/PieChart.css' %}">
+   <script>
+			var verifyCallback = function(e) {
+			document.getElementById("skip").submit()
+			};
+			var onloadCallback = function() {
+			grecaptcha.render("captcha", {
+			sitekey: "6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW",
+			callback: verifyCallback
+			})
+	};
+	</script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 		<script>
+   		(adsbygoogle = window.adsbygoogle || []).push({
+	       google_ad_client: "ca-pub-9088991721401743",
+		           enable_page_level_ads: true
+			     });
+</script>
+    	<style type="text/css">
+        .center-captcha {
+            width: 305px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+        }
+    </style>
+
+{% endblock JavaScript %}
+ {% block contenidoC %}
+    	
+
+
+               <div id="continue" class="center-captcha" style="dislay:none;"> 
+                    <form action="{% url 'cuestionario:cuest' %}" id="skip" method="post" accept-charset="utf-8">
+							<input type="hidden" name="csrf_ac" value="9b776e526ffd386033bcc69367c87352" />                     
+                        	<input type="hidden" name="id" id="id" value="1" />
+                        	<input id='il' type="hidden" name="il"  value="1" />
+                    
+                        	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&amp;render=explicit" async="" defer=""></script>
+                           				
+                           				   <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW" data-theme="light" data-type="image"></div>
+			                                           
+                    </form>   
+						<script src='https://www.google.com/recaptcha/api.js'></script>
+               </div>                  
+
+
+{% endblock contenidoC %}

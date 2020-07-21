@@ -1,0 +1,39 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+         <div >
+         	<form method="post" action="" >	{% csrf_token %}
+
+				<h4><b>Gestionar Encuestas</b></h4>
+				<!--{{ el_form.as_p }}-->
+
+				<h4>Nombre de encuesta</h4>
+             {{ form.nombreEncuesta }}
+				<h4>Estadistico</h4>
+				{{ form.estadistico }}
+				<h4>Descripcion: </h4>
+              {{ form.descripEnc }}
+				<h4>Fecha Creacion MM/DD/AAAA</h4>
+            {{ form.fechaCreacion }}
+				<h4>Estado Activa (Check)/Inactiva </h4>
+           {{ form.estadoEnc }}
+                 <br>
+				<input class="btn btn-primary btn-lg active" class= "form-control" type="submit" name="" value="Guardar">
+                 
+               <a class="btn btn-default btn-lg active " href="{% url 'menu:mis_encuestas' %}">Mis encuestas</a>
+
+			</form>
+         </div>
+			
+
+
+
+
+
+
+
+
+
+
+<!--script de jquery-->
+{% endblock contenidoC %}

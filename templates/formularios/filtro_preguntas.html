@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+
+        <tr>
+          <td><h4>ID</h4></td>
+          <td><h3>Descripcion</h3></td>
+         
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if preguntas %}
+         {% for pregunta in preguntas %}
+         <tr>
+           <td><h4>{{ pregunta.id}}</h4></td>
+           <td><h4>{{ pregunta.descripcion }}</h4></td>
+        
+
+         </td>
+
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay preguntas </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+     <a class="btn btn-default btn-lg active" href="javascript:history.back()">Volver </a>
+<br><br>
+
+
+{% endblock contenidoC %}

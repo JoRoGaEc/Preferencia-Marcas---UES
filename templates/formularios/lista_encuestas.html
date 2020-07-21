@@ -1,0 +1,60 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Fecha</td>
+          <td>Estado</td>
+          <td>Estadistico</td>
+          <td>Encuestas  por realizar</td>
+          <td>Acciones</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if encuestas %}
+         {% for encuesta in encuestas %}
+         <tr>
+           <td><h4>{{ encuesta.id }}</h4></td>
+           <td><h4>{{ encuesta.nombreEncuesta }}</h4></td>
+          <td><h4>{{ encuesta.descripEnc }}</h4></td>
+           <td><h4>{{ encuesta.fechaCreacion }}</h4></td>
+           <td><h4>{{ encuesta.estadoEnc }}</h4> </td>
+           
+           <td>{{ encuesta.estadistico }}</td>
+           <td><h4>{{ encuesta.faltantes }}</h4></td>
+           <td>
+             <a class="btn btn-primary" href="{% url 'menu:editar_encuesta' encuesta.pk %}">Editar</a>
+             <a class="btn btn-danger" href="{% url 'menu:eliminar_encuesta' encuesta.pk %}">Eliminar</a>
+             <a class="btn btn-info" href="{% url 'menu:ver_preguntas' encuesta.pk %}">Ver preguntas</a>
+
+           </td>
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay registros de encuestas </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+ 
+     <a class="btn btn-primary btn-lg" href="{% url 'menu:agregarPregunta' %}">Agregar Preguntas</a>
+   <a class="btn btn-default btn-lg" href="{% url 'menu:listar_preguntas' %}">Gestionar Preguntas</a>
+
+<br><br><br><br>
+ <a class="btn btn-success btn-lg" href="{% url 'menu:inicioEncuesta' %}"> Volver a Crear Encuesta </a>
+
+
+
+
+
+{% endblock contenidoC %}

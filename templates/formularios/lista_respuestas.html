@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+
+        <tr>
+          <td>ID</td>
+          <td>Respuesta</td>
+
+          <td>Acciones</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if object_list %}
+         {% for item in object_list %}
+           <tr>
+               <td><h4>{{ item.id }} </h4> </td>
+               <td><h4>{{ item.nombreItem }}</h4></td>
+               <td>
+                 <a class="btn btn-danger" href="{% url 'menu:eliminar_respuesta' item.pk %}">Eliminar</a>
+                 <a class="btn btn-primary" href="{% url 'menu:actualizar_item' item.pk %}">Editar</a>
+
+               </td>
+           </tr>
+         {% endfor %}
+         {% else %}
+         <h4>No hay respuestas </h4>
+         {% endif %}
+       </tbody>
+    </table>
+     <a class="btn btn-default btn-lg active" href="{% url 'menu:listar_preguntas'%}">Mis preguntas </a>
+<br><br>
+{% endblock contenidoC %}

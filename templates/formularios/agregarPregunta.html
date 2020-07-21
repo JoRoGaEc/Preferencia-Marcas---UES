@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+
+    <form  action="" method="post">
+			{% csrf_token %}
+
+      <h4> Pregunta </h4>
+       <h3>Descripcion</h3>
+      {{ form.descripcion }}
+      <h3>Encuesta</h3>
+      {{ form.encuesta }}
+      <h3>Respuestas</h3>
+      {{ form.item }}
+      <br><br>
+      <input class="btn btn-primary btn-lg" type="submit" name="" value="Guardar">
+      
+    </form>
+    <a class="btn btn-success btn-lg" href="{% url 'menu:mis_encuestas' %}"> VOLVER </a>
+
+{% endblock contenidoC %}

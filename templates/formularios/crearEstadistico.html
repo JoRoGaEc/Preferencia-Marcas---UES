@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+			<form method="post" action="" >	{% csrf_token %}
+
+				<h2><b>Estadisticos</b></h2>
+				<!--{{ el_form.as_p }}-->
+        
+        
+         <h4>Nombre</h4>
+         {{ form.nombreEst }}
+         <h4>Nivel de Confianza % Porcentaje </h4>
+           <h5>95% <input type="radio" name="nivelConf" value="0.95" checked="checked"></h5>
+           <h5>90% <input type="radio" name="nivelConf" value="0.90"></h5><br>
+         <h4>Error muestreo</h4>
+          
+           <h5>5% <input type="radio" name="error" value="0.05" checked="checked"></h5>
+           <h5>3% <input type="radio" name="error" value="0.03"></h5>
+
+           
+
+         
+
+         <h4> Mercado El Salvador 6,321,000 (personas entre 13-70 anios)</h4> 
+
+         <h4>La muestra se calculara a partir de esta informacion</h4>
+
+
+          
+				<input class="btn btn-primary btn-lg active" type="submit" name="" value="Guardar">
+          <a class="btn btn-default btn-lg active " href="{% url 'menu:mis_estadisticos' %}">Mis estadisticos</a>
+
+
+
+			</form>
+
+
+<!--script de jquery-->
+{% endblock contenidoC%}

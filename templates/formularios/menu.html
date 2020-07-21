@@ -1,0 +1,43 @@
+{% extends "base/base.html "%}
+
+
+
+
+ {% block contenidoC %}
+
+
+<form class="formulario">
+  <h1>Menu Principal </h1>
+    <div>
+    <p><a href=""><u> <a href="{% url 'menu:estadisticos' %}"><h3 class="text-success"  >1 Gestionar Estadisticos </h3></a></u></a> 
+    <p>En esta opcion usted podra gestionar sus propios estadisticos (crear, borrar, eliminar )</p>
+   </p> 
+
+   <p> <a href=""><u> <a href="{% url 'menu:agregarItem' %}"><h3 class="text-success"  >2 Agregar Respuestas </h3></a></u></a> 
+       En este apartado usted creara las respuestas entre ellos Marcas de Productos
+   </p>
+   <p><a  href=""><u> <a href="{% url 'menu:inicioEncuesta' %}"> <h3 class="text-success"  >3 Gestionar Formularios de Encuesta</h3> </a></u></a>
+     <p>Aqui Usted podra crear sus encuestas, Ver Su lista de encuestas, Y agregar preguntas a su encuesta</p>
+
+   </p> 
+   
+  <p>
+     <a href=""><u> <a href="{% url 'menu:vista_encuestas' %} "><h3 class="text-success"  >4 Vistas Encuestas </h3></a></u></a>
+     <p>Aqui puede ver como luce su encuesta  </p>
+   </p>
+
+
+   <p>
+   	 <a href=""><u> <a href="{% url 'menu:ver_estadisticos' %} "><h3 class="text-success"  >5 Ver estadisticos </h3></a></u></a>
+     <p>Aqui usted puede ver las estadisticas de cada encuesta, coin su respectiva cantidad de votos sobre cada pregunta. Ademas de Graficos Circular para analisis en base a porcentajes </p>
+   </p>
+   
+    </div>
+  
+
+
+  <br>
+
+</form>
+
+{% endblock contenidoC %}

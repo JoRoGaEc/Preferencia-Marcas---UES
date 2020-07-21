@@ -1,0 +1,52 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+
+        <tr>
+          <td>ID</td>
+          <td>Descripcion</td>
+          <td>Acciones</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if preguntas %}
+         {% for pregunta in preguntas %}
+
+         <tr>
+           <td><h4>{{ pregunta.id}}</h4></td>
+           <td><h4>{{ pregunta.descripcion }}</h4></td>
+
+
+
+        <td>
+          <a class="btn btn-primary" href="{% url 'menu:editar_pregunta' pregunta.id %}">Editar</a>
+          <a class="btn btn-danger" href="{% url 'menu:eliminar_pregunta' pregunta.id %}">Eliminar</a>
+          <a class="btn btn-info" href="{% url 'menu:ver_items' pregunta.id %}">Ver items</a>
+        </td>
+
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay preguntas </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+    <a class="btn btn-success btn-lg active" href="{% url 'menu:mis_encuestas' %}">Ir a encuestas</a>
+  
+     
+       
+     <br><br><br>
+     
+<br><br>
+
+
+{% endblock contenidoC %}

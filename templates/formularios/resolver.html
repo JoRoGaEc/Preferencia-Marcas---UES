@@ -1,0 +1,88 @@
+{% extends "base/base.html" %}
+{% block navegacion %}
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Informacion</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"></a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">/a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>  </a></li>
+      <li><a href="{% url 'logout' %}" class="text-primary"><span class="glyphicon glyphicon-log-in"></span> LOGIN </a></li>
+    </ul>
+  </div>
+</nav>
+
+
+{% endblock navegacion %}
+
+
+{% block contenidoC %}
+
+
+      <div >
+         
+<form  id="form-1" action="{% url 'cuestionario:votacion' %}" method="post">
+{% csrf_token %}
+        
+        <thead>
+           <tr>
+            
+           </tr>  
+        </thead>
+          <tbody>
+        <br>
+        <input type="hidden" name="id_encuestado" value="{{ encuestado.id }}">
+         <h3>{{ encuesta.nombreEncuesta }}</h3>
+          <input type="hidden" name="nombreEncuesta" value="{{ encuesta.nombreEncuesta }}"> 
+        
+     {% if preguntas %}
+             {% for pregunta in preguntas %}
+                       
+                      <h3>{{ pregunta.descripcion }}</h3>
+                       <br>
+                     {% for item in pregunta.item.all %}
+                        <input type="radio" name="respuesta{{ pregunta.id }}"  value="{{ item.id }}" checked="cheked" />
+                        <label for="item{{ forloop.counter }}">{{ item.nombreItem }}</label>
+                       
+                        <br>
+                      {% endfor %}
+                           
+                       
+             {% endfor %}   
+                
+                
+
+      {% else %}
+              <h5>No hay preguntas </h5>
+     {% endif %}
+
+
+             
+              
+              <br>
+                 <a class="btn btn-danger btn-sm" href="{% url 'cuestionario:cuest' %}">Cerrar encuesta</a> 
+      <button id= "btn_guardar" type="submit">Guardar</button>
+          </tbody>
+            
+        
+        
+</form>
+ <!--ESto para la paginacion de preguntas-->   
+
+
+     
+      </div>
+       
+{% endblock contenidoC %}

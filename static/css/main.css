@@ -1,0 +1,288 @@
+
+/*debo depurar muchos estilos*/
+
+
+body {
+	 color:#000000;
+	background-color: ##E3DAC9 ;
+	text-align: center
+	  }
+	      /*color es para el color de la fuente y background es
+	      par el fondo de la pagina*/
+
+	/*slector universal */
+/*{
+   margin:0;
+   padding:0; /*margen interno de los elementos*/
+
+}
+/* selectores de etiqueta h2, h1,h3 */
+h1 {
+   color:#09064C;
+   font-size:30px;
+}
+h2{
+	color:#1D9ADE;
+	font-size:25px;
+}
+
+p{
+
+
+}
+
+/*cascada
+
+p .nombre_clase{
+
+}
+
+a referencias
+
+a[href= "http://www.google.com"]{
+	color:green;
+
+}
+
+padding margen interior
+margin margen interior
+border: num_px; solid #codigo
+
+
+display:inline-block;
+display:block;
+
+regresar una carpeta
+../
+*/
+
+.formulario{
+	width: 95%;
+	max-width: 500px;
+	border:1px solid #ccc;
+     margin:auto;
+     padding:10px 20px;
+     background: ##E3DAC9 ;
+     margin-top: 20px;
+     border-radius: 20px;
+		 margin-top:35px;
+
+
+
+*/
+}
+
+.titulo_form{
+     background:#6C6F6E;
+     color:#fff;
+     padding: 10px;
+     height: 30px:;
+
+
+
+}
+.centrar{
+	margin:auto;
+}
+
+@media(max-width: 480px){
+	  form input{
+			margin-bottom:20px;
+			width:100%;
+			height:30px;
+			padding-left:10px;
+			-webkit-box-sizing:border-box; /*ocupan el 100% sin contar el padding*/
+			-moz-box-sizing:border-box;
+			box-sizing:border-:border-box;
+			border:1px solid #ccc;
+	  }
+}
+
+label{
+   font-size: 12px;
+   display:block;
+   width: 100%;  /**para bloques de mensajes*/
+}
+
+textarea{
+resize:vertical;
+max-height: 300px;
+min-height: 100px;
+
+}
+
+input, textarea{
+  margin-bottom:20px;
+  width:100%;
+  height:30px;
+  padding-left:10px;
+  -webkit-box-sizing:border-box; /*ocupan el 100% sin contar el padding*/
+  -moz-box-sizing:border-box;
+  box-sizing:border-:border-box;
+  border:1px solid #ccc;
+}
+
+input:focus, textarea{
+   border:1px solid #1668c4;
+}
+
+input[type="submit"]{
+margin-bottom:0;
+background:#1668c4;
+color:#fff;
+border:none; ;
+
+}
+
+input[type="submit"]:hover{ /*para cuanoo se pone encima el mouse de un boton*/
+ background:#4A88F4;
+ cursor: pointer; /*sale la manita*/
+}
+
+b { color: gray;
+	font-family:Arial;
+	font-size:20px
+}
+ .padre {
+	display: flex;
+	justify-content: center;
+	background-color: #A9F5BC
+
+
+
+}
+ .hijo {
+	padding: 1px;
+	margin: 1px;
+	background-color: white;
+	width: 75%;
+	height: 37%;
+}
+a{
+
+	text-decoration: none;
+	color: black;
+}
+
+div{
+
+   width:500px;
+   height: 500px;
+   margin:1px;
+   padding:1px;
+
+
+}
+
+.boton{
+	height:25px;
+	margin-bottom:0;
+	background:#B7FFB9;
+	color:#0D120D;
+	border:none; ;
+
+
+
+}
+
+#navbar{
+
+width:auto;
+
+height:36px;
+
+background:url(img/navbar-bg.png) left top repeat-x; }
+
+#navbar .inbar{
+
+display:block;
+
+height:36px;
+
+background:url(img/right-round.png) right top no-repeat; }
+
+#navbar ul, #navbar ul li{
+
+border:0px;
+
+margin:0px;
+
+padding:0px;
+
+list-style:none;
+
+height:36px;
+
+line-height:36px; } #navbar ul{
+
+background:url(img/left-round.png) left top no-repeat; }
+
+#navbar ul li{
+
+float:left;
+
+display:block;
+
+line-height:36px; }
+
+#navbar ul li a{
+
+color:#403e32;
+
+text-decoration:none;
+
+font-weight:bold;
+
+display:block; }
+
+#navbar ul li a span{
+
+padding:0 20px 0 0;
+
+height:36px;
+
+line-height:36px;
+
+display:block;
+
+margin-left:20px; }
+
+#navbar .navhome a, #navbar .navhome a:hover{
+
+background:url(img/a-bg.png) left top no-repeat;
+
+height:36px;
+
+line-height:36px; }
+
+#navbar .navhome a span, #navbar .navhome a:hover span{
+
+color:#FFFFFF;
+
+background:url(img/span-bg.png) right top no-repeat;
+
+height:36px;
+
+line-height:36px; }
+
+#navbar ul li a:hover{
+
+background:url(img/ahover-bg.png) left top no-repeat;
+
+height:36px;
+
+line-height:36px; }
+
+#navbar ul li a:hover span{
+
+background:url(img/spanhover-bg.png) right top no-repeat;
+
+height:36px;
+
+line-height:36px; }
+
+
+.colorDiv{
+
+	 color:red;
+}

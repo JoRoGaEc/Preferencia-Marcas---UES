@@ -1,0 +1,100 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+
+{% block META %}
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+{% endblock META %}
+{% block EstilosCSS %}
+
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/PieChart.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}"> 
+	<style type="text/css">
+		#target {
+			width: 400px;
+			height: 400px;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th {
+			background: #A7C942;
+			border: 1px solid #98BF21;
+			color: #ffffff;
+			font-weight: bold;
+			text-align: left;
+		}
+		td {
+			border: 1px solid #98BF21;
+			text-align: left;
+			font-weight: normal;
+			color: #000000;
+		}
+		tr:nth-child(odd) {
+			background: #ffffff;
+		}
+		tbody tr:nth-child(odd) th {
+			background: #ffffff;
+			color: #000000;
+		}
+		tr:nth-child(even) {
+			background: #EAF2D3;
+		}
+		tbody tr:nth-child(even) th {
+			background: #EAF2D3;
+			color: #000000;
+		}
+	</style>
+
+{% endblock EstilosCSS %}
+				
+{% block JavaScript %}
+           <script src= "{% static 'js/jquery-1.11.0.min.js' %}"></script>
+             <script src= "{% static 'js/bootstrap.min.js' %}"></script>
+             <script src= "{% static 'js/PieChart.js' %}"></script>
+               
+{% endblock JavaScript %}
+
+{% block contenidoC %}
+
+        <h3>DATOS DE LA ENCUESTA: <h4>{{ encuesta.nombreEncuesta }}</h4></h3> 
+  
+    <h4>{{ pregunta.descripcion}}</h4>
+    		<table id="source">
+    			<thead>
+    				<tr>
+    					<th>Item</th>
+    					<th>Votos</th>
+    				</tr>
+    			</thead>
+    			
+   		{% for resultado in resultados %}
+   					<tbody>
+			<tr>
+				<td class="pieChart" value="{{ resultado.frecuencia }}">{{ resultado.item.nombreItem }}</td>
+				<td>{{ resultado.frecuencia }}</td>
+			</tr>
+	
+
+		   </tbody>
+          
+   		    {% endfor %}  
+   		       <a class = "btn btn-success" href="javascript:history.back();">Volver Atras</a>
+  		</table>
+    
+	<div id="target">
+
+	</div>
+
+<script type="text/javascript">
+	$(function() {
+		$('#source').pieChart('#target', 'Porcentajes');
+	});
+</script>
+
+
+
+
+
+{% endblock contenidoC %}

@@ -1,0 +1,96 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> {% block Titulo %}  {% endblock Titulo  %}
+     </title>
+
+     {% block META %}
+
+     
+
+     {% endblock META%}
+
+
+
+     {% block EstilosCSS %}
+               <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"> 
+                <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+                <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">  
+     {% endblock EstilosCSS %}
+
+     {% block JavaScript %}
+             <script src= "{% static 'js/jquery.js' %}"></script>
+             <script src= "{% static 'js/bootstrap.min.js' %}"></script>
+             <script src= "{% static 'js/Chart.min.js' %}"></script>
+               <script src= "{% static 'js/Chart.js' %}"></script>
+               <link rel="stylesheet" type="text/css" href="{% static 'css/PieChart.css' %}">
+     {% endblock JavaScript%}
+	
+	<meta charset="UTF-8">
+	<title>Document</title>
+{% block head %}
+{% endblock head %}
+</head>
+<body class="body">
+	 {% block navegacion %}
+          
+     <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'menu:index' %}">Inicio</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"></a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'menu:inicioEncuesta' %}">Encuestas<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'menu:inicioEncuesta' %}">crearEncuesta</a></li>
+           <li><a href="{% url 'menu:mis_encuestas' %}">Mis Encuestas</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Estadisticas</a></li>
+      <li><a href="#">Grupo Trabajo</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+      <li><a href="{% url 'cuestionario:cuest' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+	 {% endblock navegacion %}
+      <header>
+      	<div class="container">
+	 	     <h5></h5>
+	     </div>
+      </header>
+      <div class="container" class="bg-success">
+      	   <section class="main row">
+	  	<div class="col-md-1 bg" >
+	  	    {% block contenidoI %}
+	  		 <p> </p>
+	  		 {% endblock contenidoI %}
+	  	    
+	  	</div>
+	  	<div class="col-md-10 bg-info bloqueCentro">
+	  	{% block contenidoC %}
+	  		<p>ESte es contenido del centro de la pantalla  </p>
+	  	{% endblock contenidoC %}
+	  	</div>
+	  	<div class="col-md-1" >
+	  	{% block contenidoD %}
+	  		<p></p>
+	  	{% endblock contenidoD %}
+	  	</div>
+	  </section>
+
+      </div>
+	  
+
+	 {% block PiePagina %}
+
+	 {% endblock PiePagina%}
+</body>
+</html>

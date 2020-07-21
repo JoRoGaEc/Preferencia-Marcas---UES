@@ -1,0 +1,56 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+
+      <div >
+         
+<form  id="form-1" action="{% url 'cuestionario:votacion' %}" method="post">
+{% csrf_token %}
+        
+        <thead>
+           <tr>
+            
+           </tr>  
+        </thead>
+          <tbody>
+        <br>
+        <input type="hidden" name="id_encuestado" value="{{ encuestado.id }}">
+         <h3>{{ encuesta.nombreEncuesta }}</h3>
+          <input type="hidden" name="nombreEncuesta" value="{{ encuesta.nombreEncuesta }}"> 
+     {% if preguntas %}
+             {% for pregunta in preguntas %}
+                       
+                      <h3>{{ pregunta.descripcion }}</h3>
+                       <br>
+                     {% for item in pregunta.item.all %}
+                        <label >{{ item.nombreItem }}</label>
+                       
+                        <br>
+                      {% endfor %}
+                           
+                       
+             {% endfor %}   
+                
+                
+
+      {% else %}
+              <h5>No hay preguntas </h5>
+     {% endif %}
+
+
+             
+              
+              <br>
+                 <a class="btn btn-success btn-sm" href="{% url 'menu:index' %}">Menu Principal</a> 
+          </tbody>
+               
+        
+        
+</form>
+ <!--ESto para la paginacion de preguntas-->       
+
+     
+      </div>
+       
+{% endblock contenidoC %}

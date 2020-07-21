@@ -1,0 +1,50 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}"> 
+      <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/fonts.css' %}">
+</head>
+<body>
+		<header>
+      	<div class="container">
+	 	     <h5></h5>
+	     </div>
+      </header>
+<div class="container" class="bg-success">
+      	   <section class="main row">
+	  	     <div class="col-md-4 bg" >
+	  	     		
+			</div>
+	  	<div class="col-md-4 bg-info bloqueCentro">
+
+	  		<h5>VALIDESE PARA PODER INGRESAR</h5>
+	  		<form action='.' method='POST'>
+	  			{% csrf_token %}
+                  {{ form }} <br>
+    			<input type="submit" value="Aceptar"/>
+
+
+    			<button class='js-captcha-refresh'></button>
+				</form>
+					<a class="btn btn-success btn-lg active " href="{% url 'cuestionario:cuest' %}">SALIR</a>
+				
+        </div>
+	  	<div class="col-md-4" >
+			</div>
+	  </section>
+
+
+</div>
+	  
+</body>
+</html>
+
+
+
+
+	 
+  

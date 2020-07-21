@@ -1,0 +1,49 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>Nombre Encuesta</td>
+          <td>Encuesta ID</td>
+          <td>Acciones</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if encuestas %}
+         {% for encuesta in encuestas %}
+         <tr>
+          <td>{{ encuesta.nombreEncuesta }}</td>
+           <td><h4>{{ encuesta.id }}</h4></td>
+           <td><h4>
+           <a class="btn btn-primary" href="{% url 'menu:graficos' encuesta.pk %}">Ver Estadisticos</a>
+           <a class="btn btn-danger" href="{% url 'menu:resetear' encuesta.pk %}">RESETEAR Estadistico</a>
+           </h4></td>
+          
+           <td>
+             
+           </td>
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay registros de encuestas </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+ 
+
+
+
+
+
+
+
+
+{% endblock contenidoC %}

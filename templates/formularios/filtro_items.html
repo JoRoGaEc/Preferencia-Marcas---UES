@@ -1,0 +1,40 @@
+{% extends "base/base.html" %}
+
+{% block contenidoC %}
+
+    <table class="table table-bordered">
+      <thead>
+
+        <tr>
+          <td><h4>ID</h4></td>
+          <td><h4>Descripcion</h4></td>
+         
+        </tr>
+
+      </thead>
+        {{ pregunta.descripcion }}
+       <tbody>
+         {% if items %}
+         {% for item in items %}
+         <tr>
+           <td><h4>{{ item.id}}</h4></td>
+           <td><h4>{{ item.nombreItem }}</h4></td>
+        
+
+         </td>
+
+
+         </tr>
+           {% endfor %}
+
+            {% else %}
+            <h1>No hay items </h1>
+
+            {% endif %}
+       </tbody>
+    </table>
+     <a class="btn btn-default btn-lg active" href="javascript:history.back()">Volver </a>
+<br><br>
+
+
+{% endblock contenidoC %}

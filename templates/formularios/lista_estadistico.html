@@ -1,0 +1,40 @@
+{% extends "base/base.html "%}
+
+
+{% block contenidoC %}
+			<table class="table table-bordered">
+      <thead>
+		<h4>ADVERTENCIA!!! Si elimina un estadistico se eliminaran las encuestas asociadas a el</h4>
+        <tr>
+          <td>ID</td>
+          <td>Estadistico</td>
+
+          <td>Acciones</td>
+
+        </tr>
+
+      </thead>
+
+       <tbody>
+         {% if object_list %}
+         {% for estadistico in object_list %}
+           <tr>
+               <td><h4>{{ estadistico.id }} </h4> </td>
+               <td><h4>{{ estadistico.nombreEst }}</h4></td>
+               <td>
+                	<a class="btn btn-danger" href="{% url 'menu:eliminar_estadistico' estadistico.pk %}">Eliminar</a>
+
+               </td>
+           </tr>
+         {% endfor %}
+         {% else %}
+         <h4>No hay estadisticos</h4>
+         {% endif %}
+       </tbody>
+       
+    </table>
+    <a class="btn btn-success" href="{% url 'menu:estadisticos'%}">Ir a crear estadisticos</a>
+<br><br>
+
+		
+{% endblock contenidoC%}

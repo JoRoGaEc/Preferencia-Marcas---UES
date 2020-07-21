@@ -1,0 +1,119 @@
+{% extends "base/base.html" %}
+
+
+{% block navegacion %}
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"></a></li>
+   
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>  </a></li>
+      <li><a href="{% url 'login' %}" class="text-primary"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock navegacion %}
+{% block contenidoI %}
+      <div class="social">
+    <ul>
+      <li><a href="http://www.facebook.com/" target="_blank" class="icon-facebook"></a></li>
+      <a href="#" onclick="share();">Share</a>
+      <li><a href="http://www.twitter.com/" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="http://www.googleplus.com/" target="_blank" class="icon-google3"></a></li>
+      
+     
+    </ul>
+  </div>
+
+
+<!-- Load Facebook SDK for JavaScript -->
+
+{% endblock contenidoI %}
+
+{% block contenidoC %}
+
+     <form method="post">
+  
+         <table >
+
+        <thead>
+           <tr>
+             <h3>{{ mensaje }}</h3>
+             <td><h3>Encuestas Activas</h3></td> 
+            
+           </tr>  
+        </thead>
+          <tbody>
+          {% if encuestas %}
+           {% for encuesta in encuestas %}
+           <tr>
+               
+              <td><a href=""><u> <a href="{% url 'cuestionario:captcha' encuesta.pk %}"><h3 class="text-success text-center">{{ encuesta.nombreEncuesta }}   </h3> </a></u></a></td>
+              <br>
+              <td> <h3 class="text-info "> {{ encuesta.descripEnc }}</h3></td>
+           </tr>
+            {% endfor %}
+              
+              {% else %}
+              <h5>No hay encuestas disponibles </h5>
+              {% endif %}
+          </tbody>
+               
+        </table> 
+     
+
+
+</form>
+     
+
+{% endblock contenidoC %}
+
+{% block contenidoD %}
+
+<h3>VISITAS</h3>
+<script type="text/javascript" src="https://counter1.fcs.ovh/private/counter.js?c=j24sbdugnkrw9jc3pbbdt8bnc361qt2g"></script>
+<noscript><a href="https://www.contadorvisitasgratis.com" title="contador de visitas"><img src="https://counter1.fcs.ovh/private/contadorvisitasgratis.php?c=j24sbdugnkrw9jc3pbbdt8bnc361qt2g" border="0" title="contador de visitas" alt="contador de visitas"></a></noscript>
+
+
+
+<div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({appId: 'IDENTIFICADOR-APLICACIÓN', status: true, cookie: true, xfbml: true});
+      };
+      (function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+      }());
+
+            function share(){
+                var share = {
+                    method: 'stream.share',
+                    u: 'http://127.0.0.1:8000/cuestionario/'
+                };
+                FB.ui(share, function(response) {
+          //alert("Proceso terminado");
+        });
+            }
+
+    </script>
+
+
+{% endblock contenidoD %}
+
+
+
+
+
+
+
+
